@@ -1,1 +1,275 @@
-Hello World
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Advanced Secure Computing (ASC) — Cybersecurity • Firewalls • Wi‑Fi • VoIP</title>
+  <meta name="description" content="ASC helps small and mid‑sized businesses with cybersecurity, firewalls, Wi‑Fi, VoIP, and business internet sourcing & management." />
+  <meta property="og:title" content="Advanced Secure Computing (ASC)" />
+  <meta property="og:description" content="Cybersecurity, Firewalls, Wi‑Fi, VoIP, and business internet sourcing & management for SMBs." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0ea5e9" />
+  <style>
+    :root{
+      --bg: #0b1220;           /* deep navy */
+      --bg-2:#0f172a;          /* slate */
+      --text:#e6edf3;          /* near-white */
+      --muted:#9fb3c8;         /* slate-300 */
+      --primary:#0ea5e9;       /* sky-500 */
+      --primary-2:#22c55e;     /* green-500 */
+      --card:#0b1327;
+      --ring: rgba(14,165,233,.35);
+      --shadow: 0 10px 30px rgba(2, 8, 23, .65);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%;scroll-behavior:smooth;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif}
+    a{color:var(--primary);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    header{position:sticky;top:0;z-index:50;background:linear-gradient(180deg, rgba(11,18,32,.9), rgba(11,18,32,.5) 60%, transparent);backdrop-filter: blur(6px)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.3px}
+    .brand .logo{width:36px;height:36px;border-radius:9px;background:linear-gradient(135deg,var(--primary),#3b82f6);display:grid;place-items:center;box-shadow:var(--shadow)}
+    .brand .logo span{font-weight:900}
+    .nav a{color:var(--text);opacity:.9}
+    .nav-links{display:flex;gap:20px}
+    .btn{display:inline-flex;align-items:center;gap:10px;background:var(--primary);color:white;border:0;border-radius:999px;padding:12px 18px;font-weight:700;box-shadow:0 8px 25px rgba(14,165,233,.35);transition:.2s ease}
+    .btn:hover{transform:translateY(-1px);box-shadow:0 12px 30px rgba(14,165,233,.45)}
+    .btn.secondary{background:transparent;border:1px solid rgba(230,237,243,.15);color:var(--text)}
+    .hero{position:relative;overflow:hidden}
+    .hero .glow{position:absolute;inset:-30% -30% auto auto;width:60vw;height:60vw;min-width:600px;min-height:600px;background:radial-gradient(closest-side, rgba(14,165,233,.35), transparent 70%);filter:blur(40px);pointer-events:none}
+    .hero .wrap{padding:70px 0 30px}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;background:rgba(34,197,94,.15);color:#c8f7d4;font-weight:700;font-size:.85rem;border:1px solid rgba(34,197,94,.3)}
+    h1{font-size:clamp(2rem, 3.5vw + .5rem, 3.25rem);line-height:1.12;margin:18px 0 10px}
+    .lead{font-size:1.125rem;color:var(--muted);max-width:780px}
+    .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+    .section{padding:64px 0}
+    .grid{display:grid;gap:18px}
+    .grid.cards{grid-template-columns:repeat(12,1fr)}
+    .card{grid-column:span 12;background:var(--card);border:1px solid rgba(99,102,241,.08);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+    .card h3{margin:6px 0 8px}
+    .icon{width:28px;height:28px;display:inline-block}
+    .pill{display:inline-flex;align-items:center;gap:8px;font-size:.9rem;color:#cbd6e2;background:rgba(148,163,184,.15);border:1px solid rgba(148,163,184,.25);padding:6px 10px;border-radius:999px}
+    .two{display:grid;gap:18px;grid-template-columns:repeat(12,1fr)}
+    .two > .left{grid-column:span 7}
+    .two > .right{grid-column:span 5}
+    .list{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+    .list li{display:flex;gap:10px}
+    .tick{color:var(--primary-2);font-weight:900}
+    .steps{display:grid;gap:14px;grid-template-columns:repeat(4,1fr)}
+    .step{background:linear-gradient(180deg, rgba(15,23,42,.9), rgba(11,19,39,.9));border:1px solid rgba(148,163,184,.2);border-radius:var(--radius);padding:18px}
+    .step .num{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:8px;background:rgba(14,165,233,.2);margin-bottom:10px;font-weight:800}
+    .faq details{background:var(--card);border:1px solid rgba(148,163,184,.2);border-radius:14px;padding:14px}
+    .faq summary{cursor:pointer;font-weight:700}
+    .callout{background:linear-gradient(135deg, rgba(14,165,233,.12), rgba(34,197,94,.12));border:1px solid rgba(14,165,233,.35);padding:20px;border-radius:var(--radius)}
+    footer{padding:50px 0 40px;border-top:1px solid rgba(148,163,184,.2);color:var(--muted)}
+    .small{font-size:.925rem;color:var(--muted)}
+    .badge-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+
+    /* Responsive */
+    @media (max-width: 950px){
+      .two > .left{grid-column:span 12}
+      .two > .right{grid-column:span 12}
+      .steps{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width: 640px){
+      .grid.cards{grid-template-columns:1fr}
+      .steps{grid-template-columns:1fr}
+      header .nav-links{display:none}
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#content" style="position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden">Skip to content</a>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"><span>🔐</span></div>
+        <span>Advanced Secure Computing <span style="opacity:.7">(ASC)</span></span>
+      </div>
+      <nav class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#how">How it Works</a>
+        <a href="#why">Why ASC</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="btn" href="#contact" aria-label="Get a quote">Get a Quote</a>
+    </div>
+  </header>
+
+  <main id="content">
+    <section class="hero">
+      <div class="glow"></div>
+      <div class="container wrap">
+        <span class="eyebrow">Security‑first networking for small business</span>
+        <h1>Secure. Fast. Simple.<br/>Cybersecurity, Firewalls, Wi‑Fi & VoIP — plus Internet sourcing you don’t have to think about.</h1>
+        <p class="lead">ASC designs, installs, and supports the network and security stack your business runs on. We also shop, provision, and manage your business Internet (so you don’t have to sit on carrier hold music ever again).</p>
+        <div class="cta">
+          <a class="btn" href="mailto:info@example.com?subject=ASC%20Quote%20Request">Email Us</a>
+          <a class="btn secondary" href="tel:+1-555-555-5555">Call: (555) 555‑5555</a>
+        </div>
+        <div class="badge-row small" aria-label="Highlights">
+          <span class="pill">SMB‑friendly • Plain‑English support</span>
+          <span class="pill">Zero‑trust fundamentals</span>
+          <span class="pill">Remote & on‑site options</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section">
+      <div class="container">
+        <h2>What we do</h2>
+        <div class="grid cards">
+          <article class="card" style="grid-column:span 6">
+            <div class="pill" style="margin-bottom:8px">Internet Sourcing & Management</div>
+            <h3>Business Internet without the hassle</h3>
+            <p>We compare carriers, order the circuit, coordinate installation, and monitor uptime. Need backup Internet? We design automatic failover so your business stays online.</p>
+          </article>
+          <article class="card" style="grid-column:span 6">
+            <div class="pill" style="margin-bottom:8px">Firewalls & Cybersecurity</div>
+            <h3>Security that matches your risk</h3>
+            <p>Next‑gen firewalls, intrusion prevention, secure remote access, endpoint policies, and least‑privilege networking. Built for compliance and simplicity.</p>
+          </article>
+          <article class="card" style="grid-column:span 6">
+            <div class="pill" style="margin-bottom:8px">Wi‑Fi Design & Install</div>
+            <h3>Fast, reliable wireless</h3>
+            <p>Heat‑map planning, clean cabling, controller setup, and tuning for high‑density areas. Guests get the Internet; your data stays protected.</p>
+          </article>
+          <article class="card" style="grid-column:span 6">
+            <div class="pill" style="margin-bottom:8px">VoIP Phone Systems</div>
+            <h3>Modern voice for modern teams</h3>
+            <p>Cloud or on‑prem options, number porting, auto attendants, call queues, and QoS so calls stay clear even when the network is busy.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container two">
+        <div class="left">
+          <h2 id="why">What does “we resell ISP connections” mean?</h2>
+          <p class="small">Plain‑English version:</p>
+          <ul class="list">
+            <li><span class="tick">✔</span> We shop multiple carriers to find the best speed, price, and contract for your address.</li>
+            <li><span class="tick">✔</span> We place the order and handle all the install coordination.</li>
+            <li><span class="tick">✔</span> We terminate the circuit on a business‑grade firewall and set up automatic failover if you want a backup line.</li>
+            <li><span class="tick">✔</span> We monitor, support, and escalate with the carrier—so you call <em>us</em>, not a 1‑800 number.</li>
+          </ul>
+          <div class="callout" style="margin-top:14px">
+            <strong>Result:</strong> You get business‑class Internet with one accountable partner (ASC), not a bundle of vendors to juggle.
+          </div>
+        </div>
+        <aside class="right">
+          <div class="card">
+            <h3>Quick benefits</h3>
+            <ul class="list">
+              <li><span class="tick">✓</span> Security‑first designs (zero‑trust mindset)</li>
+              <li><span class="tick">✓</span> Simple monthly support options</li>
+              <li><span class="tick">✓</span> Remote + on‑site availability</li>
+              <li><span class="tick">✓</span> Vendor‑neutral recommendations</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="how" class="section" aria-label="How it works">
+      <div class="container">
+        <h2>How it works</h2>
+        <div class="steps">
+          <div class="step"><div class="num">1</div><strong>Discover</strong><br/><span class="small">Brief call + site details</span></div>
+          <div class="step"><div class="num">2</div><strong>Design</strong><br/><span class="small">Right‑sized proposal</span></div>
+          <div class="step"><div class="num">3</div><strong>Deploy</strong><br/><span class="small">Install, configure, test</span></div>
+          <div class="step"><div class="num">4</div><strong>Defend</strong><br/><span class="small">Monitor & support</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq" aria-label="Frequently asked questions">
+      <div class="container">
+        <h2>FAQ</h2>
+        <div class="grid" style="gap:12px">
+          <details>
+            <summary>Do you replace my current IT provider?</summary>
+            <p>We can work alongside your IT team or fully manage the network and security stack—your choice.</p>
+          </details>
+          <details>
+            <summary>Can you support our existing equipment?</summary>
+            <p>Yes. We’re vendor‑neutral and can integrate with most business‑grade gear. If an upgrade is justified, we’ll explain the why.</p>
+          </details>
+          <details>
+            <summary>Do you offer ongoing monitoring?</summary>
+            <p>Yes—24×7 monitoring and alerting options are available, along with regular security updates and reports.</p>
+          </details>
+          <details>
+            <summary>How fast can we get started?</summary>
+            <p>Designs are typically turned around quickly; carrier installs vary by address. We’ll provide realistic timelines up front.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container two">
+        <div class="left">
+          <h2>Let’s talk</h2>
+          <p>Tell us a bit about your office and goals. We’ll reply with a short plan and options.</p>
+          <form class="card" onsubmit="event.preventDefault(); alert('Thanks! We\'ll be in touch shortly.');">
+            <label class="small" for="name">Name</label>
+            <input id="name" name="name" required style="width:100%;margin:6px 0 12px;padding:12px 14px;border-radius:12px;border:1px solid rgba(148,163,184,.35);background:#0c152b;color:var(--text);outline:none;box-shadow:0 0 0 0 var(--ring)" onfocus="this.style.boxShadow='0 0 0 4px var(--ring)';" onblur="this.style.boxShadow='0 0 0 0 var(--ring)';" />
+            <label class="small" for="email">Email</label>
+            <input id="email" name="email" type="email" required style="width:100%;margin:6px 0 12px;padding:12px 14px;border-radius:12px;border:1px solid rgba(148,163,184,.35);background:#0c152b;color:var(--text);outline:none;box-shadow:0 0 0 0 var(--ring)" onfocus="this.style.boxShadow='0 0 0 4px var(--ring)';" onblur="this.style.boxShadow='0 0 0 0 var(--ring)';" />
+            <label class="small" for="msg">How can we help?</label>
+            <textarea id="msg" name="message" rows="4" style="width:100%;margin:6px 0 14px;padding:12px 14px;border-radius:12px;border:1px solid rgba(148,163,184,.35);background:#0c152b;color:var(--text);outline:none;box-shadow:0 0 0 0 var(--ring)" onfocus="this.style.boxShadow='0 0 0 4px var(--ring)';" onblur="this.style.boxShadow='0 0 0 0 var(--ring)';"></textarea>
+            <div style="display:flex;gap:10px;flex-wrap:wrap">
+              <button class="btn" type="submit">Send</button>
+              <a class="btn secondary" href="mailto:info@example.com?subject=ASC%20Inquiry">Or email us</a>
+            </div>
+          </form>
+        </div>
+        <aside class="right">
+          <div class="card">
+            <h3>Contact</h3>
+            <p class="small">Email: <a href="mailto:info@example.com">info@example.com</a><br/>Phone: <a href="tel:+1-555-555-5555">(555) 555‑5555</a></p>
+            <p class="small">Serving New Jersey and the greater Mid‑Atlantic region. Remote deployments available nationwide.</p>
+          </div>
+          <div class="card" style="margin-top:12px">
+            <h3>Compliance & Reporting</h3>
+            <p class="small">Need reports for cyber insurance or audits? We can provide security posture summaries and change logs on a regular cadence.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
+        <div>© <span id="y"></span> Advanced Secure Computing (ASC). All rights reserved.</div>
+        <div class="small">Security‑first networking for SMBs.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // update copyright year
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+
+  <!-- Schema.org Organization (fill in your real details) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Advanced Secure Computing (ASC)",
+    "description": "Cybersecurity, Firewalls, Wi‑Fi, VoIP, and business Internet sourcing & management for SMBs.",
+    "telephone": "+1-555-555-5555",
+    "email": "info@example.com",
+    "areaServed": "US",
+    "url": "https://www.example.com/",
+    "sameAs": []
+  }
+  </script>
+</body>
+</html>
